@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Chroma Colours Neutrals</title>
+    <link rel='stylesheet' href='https://refreshless.com/nouislider/dist/nouislider.css?v=1570'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <div id="form" class="flex flex-row gap-3 px-6 py-4 w-4/5 sticky top-2 bg-black z-50 mx-auto rounded-md min-w-80 ">
+  <label class="flex flex-row flex-1 items-center justify-center">
+    <span class="w-1/4 text-right">Hue</span>
+    <div id="hue" class="slider flex-1"></div>
+  </label>
+  <label class="flex flex-row flex-1 items-center justify-center">
+    <span class="w-1/4 text-right">Saturation</span>
+    <div id="saturation" class="slider flex-1"></div>
+  </label>
+  <label class="flex flex-row flex-1 items-center justify-center">
+    <span class="w-1/4 text-right">Adjustment</span>
+    <div id="sMod" class="slider flex-1"></div>
+  </label>
+</div>
+
+<div id="miniPreview" class="m-4"></div>
+<div id="selectedSwatches" class="m-4"></div>
+<div id="preview" class="m-4"></div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js'></script><script  src="./script.js"></script>
+
+  </body>
+  
+</html>

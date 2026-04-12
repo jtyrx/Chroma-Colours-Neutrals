@@ -1,0 +1,123 @@
+:root {
+    --slider-thumb-size: calc(1.5rem);
+    --slider-track-size: calc(var(--slider-thumb-size) / 4);
+    --slider-margin: var(--slider-thumb-size);
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  background: black;
+  color: white;
+  display: flex;
+  flex-flow: column;
+}
+
+#miniPreview, #selectedSwatches {
+    height: 60px;
+    background: black;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-gap: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+#preview {
+    background: black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-gap: 1px;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+  overflow: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  border-radius: 5px;
+  overflow: hidden;
+
+}
+.color-box {
+  font-family: 'Courier New';
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px 16px;
+  color: white;
+  float:left;
+  align-content: center;
+  justify-content: center;
+}
+
+.color-box .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-box .row > span:first-child {
+  opacity: 0.8;
+}
+
+.slider {
+    border: 0 none;
+    box-sizing: content-box;
+    background-clip: padding-box;
+
+    height: var(--slider-track-size);
+    background-color: rgba(255 255 255 / 30%);
+    box-shadow: none;
+    flex: 3;
+    margin: 0 var(--slider-margin);
+    border-radius: 999px;
+}
+
+.slider .noUi-handle {
+    border: calc(var(--slider-thumb-size) / 5) solid white;
+    cursor: default;
+    box-shadow: none;
+
+
+    height: var(--slider-thumb-size);
+    width: var(--slider-thumb-size);
+
+    top: calc((var(--slider-thumb-size) - var(--slider-track-size)) / -2);
+    right: calc((var(--slider-thumb-size) - var(--slider-track-size)) / -2);
+
+    box-shadow: 0px 1px 2px -1px rgba(0, 35, 41, 0.04), 0px 1px 3px 0px rgba(0, 35, 41, 0.04), 0px 0px 0px 1px rgba(0, 35, 41, 0.1);
+
+    /*custom styles*/
+    background: white;
+    border-radius: 50%;
+
+}
+
+.slider .noUi-tooltip {
+    bottom: initial;
+    top: calc(var(--slider-thumb-size) - var(--slider-thumb-size) / 10);
+    visibility: hidden;
+    border-radius: 6px;
+    font-size: 75%;
+}
+
+.slider:hover .noUi-tooltip {
+    visibility: visible;
+    z-index: 10;
+}
+
+.slider .noUi-handle::before,
+.slider .noUi-handle::after {
+    display: none;
+}
+
+.noUi-connect {
+  background-color: hsl(0deg 0% 70%);
+}
