@@ -2,6 +2,9 @@ let hue = 200;
 let saturation = 0.2;
 let sMod = 70;
 
+/** Matches app/lib/palette.ts — max OKLCH chroma at saturation=1 and modifier=1. */
+const OKLCH_MAX_CHROMA = 0.2;
+
 // Initialize sliders and update the palette on change.
 noUiSlider.create(document.getElementById('hue'), {
   start: hue,
@@ -41,7 +44,7 @@ noUiSlider.create(document.getElementById('sMod'), {
   previewPalette();
 });
 
-// Compute a saturation modifier based on the current sMod and lightness index.
+// Curve multiplier for OKLCH chroma (same parabola as the App Router palette).
 function getSaturation2(l) {
   const o = 50;
   const p = sMod;
@@ -62,7 +65,8 @@ function generateNeutrals({
   while (value < max) {
     const idx = parseInt(value * 100);
     const sK = getSaturation2(idx);
-    const color = chroma.hsl(hue, saturation * sK, value).css('hsl');
+    const C = saturation * sK * OKLCH_MAX_CHROMA;
+    const color = chroma.oklch(value, C, hue).css();
     colors.push(color);
     step += 1;
     value = step * distance + min;
