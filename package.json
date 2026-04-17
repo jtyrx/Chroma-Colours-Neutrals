@@ -2,19 +2,13 @@
   "name": "chroma-colours-neutrals",
   "private": true,
   "version": "0.1.0",
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
     "dev": "next dev --turbopack",
-    "dev:neutral": "npm run dev -w neutral-system",
     "dev:webpack": "next dev --webpack",
     "build": "next build",
-    "build:neutral": "npm run build -w neutral-system",
     "start": "next start",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit",
-    "type-check:neutral": "npm run type-check -w neutral-system"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",

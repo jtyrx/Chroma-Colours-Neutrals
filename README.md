@@ -21,6 +21,10 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Related project
+
+The **Neutral System Builder** (OKLCH neutral ramps, design tokens, export) lives in its own repository: [github.com/jtyrx/neutral-system](https://github.com/jtyrx/neutral-system). Live demo: [neutral-system.vercel.app](https://neutral-system.vercel.app).
+
 ## Project Structure
 
 - `app/` — App Router pages, components, and global Tailwind v4 styles
