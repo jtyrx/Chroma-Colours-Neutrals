@@ -1,33 +1,24 @@
 {
-  "name": "chroma-colours-neutrals",
+  "name": "neutral-system",
   "private": true,
   "version": "0.1.0",
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
-    "dev": "next dev --turbopack",
-    "dev:neutral": "npm run dev -w neutral-system",
-    "dev:webpack": "next dev --webpack",
+    "dev": "next dev --turbopack -p 3001",
     "build": "next build",
-    "build:neutral": "npm run build -w neutral-system",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit",
-    "type-check:neutral": "npm run type-check -w neutral-system"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
-    "chroma-js": "3.2.0",
-    "color-elements": "^0.0.10",
     "colorjs.io": "^0.6.1",
     "next": "16.2.3",
     "react": "19.2.5",
     "react-dom": "19.2.5",
+    "sonner": "^2.0.7",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
-    "@types/chroma-js": "^3.1.2",
     "@types/node": "25.6.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",

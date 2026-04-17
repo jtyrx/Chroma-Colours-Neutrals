@@ -71,6 +71,18 @@ export default function HomePage() {
                 >
                   Source Repository
                 </Link>
+                <Link
+                  href="/chroma-tools"
+                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/6 px-5 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+                >
+                  Chroma tools
+                </Link>
+                <Link
+                  href="/color-tools"
+                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/6 px-5 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+                >
+                  Color.js tools
+                </Link>
               </div>
             </div>
             <div className="rounded-[24px] border border-white/10 bg-black/20 p-5">

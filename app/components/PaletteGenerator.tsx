@@ -133,9 +133,12 @@ function FeaturedSwatch({swatch}: SwatchCardProps) {
 }
 
 function DisplayValueRow({
+  rowId,
   values,
   swatches,
 }: {
+  /** Stable prefix so keys never collide with other strips (e.g. token 950 vs neutral step 950). */
+  rowId: string
   values: number[]
   swatches: Array<(ReturnType<typeof generatePalette>)[number]>
 }) {
@@ -146,7 +149,7 @@ function DisplayValueRow({
 
         return (
           <div
-            key={value}
+            key={`${rowId}-${index}-${value}`}
             className="palette-display-cell"
             style={
               swatch
@@ -171,11 +174,11 @@ function DisplayValueRow({
 function DesignSystemNeutralRow() {
   return (
     <div className="palette-strip palette-display-row">
-      {DESIGN_SYSTEM_NEUTRAL_REFERENCE.map(({step, css, usage}) => {
+      {DESIGN_SYSTEM_NEUTRAL_REFERENCE.map(({step, css, usage}, index) => {
         const textColor = chroma.contrast('white', css) < 2.9 ? '#171717' : '#ffffff'
         return (
           <div
-            key={step}
+            key={`design-system-neutral-${index}-${step}`}
             className="palette-display-cell"
             style={{backgroundColor: css, color: textColor}}
             title={`neutral-${step} · ${usage} · ${css}`}
@@ -303,12 +306,20 @@ export function PaletteGenerator() {
         </div>
         <div className="mt-5 space-y-2.5">
           <div className="palette-strip palette-featured">
-            {featuredPalette.map((swatch) => (
-              <FeaturedSwatch key={`featured-${swatch.grey}`} swatch={swatch} />
+            {featuredPalette.map((swatch, index) => (
+              <FeaturedSwatch key={`featured-${index}-${swatch.grey}`} swatch={swatch} />
             ))}
           </div>
-          <DisplayValueRow values={CURATED_DISPLAY_ROW_ONE} swatches={displayRowOnePalette} />
-          <DisplayValueRow values={CURATED_DISPLAY_ROW_TWO} swatches={displayRowTwoPalette} />
+          <DisplayValueRow
+            rowId="grey-100"
+            values={CURATED_DISPLAY_ROW_ONE}
+            swatches={displayRowOnePalette}
+          />
+          <DisplayValueRow
+            rowId="token-1000"
+            values={CURATED_DISPLAY_ROW_TWO}
+            swatches={displayRowTwoPalette}
+          />
           <DesignSystemNeutralRow />
         </div>
       </section>
