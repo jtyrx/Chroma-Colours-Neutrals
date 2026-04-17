@@ -6,9 +6,14 @@ const repoRoot = path.join(__dirname, '../..')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {
-    root: repoRoot,
-  },
+  // Monorepo dev: point Turbopack at repo root. Omit on Vercel so it matches outputFileTracingRoot.
+  ...(process.env.VERCEL
+    ? {}
+    : {
+        turbopack: {
+          root: repoRoot,
+        },
+      }),
 }
 
 export default nextConfig
